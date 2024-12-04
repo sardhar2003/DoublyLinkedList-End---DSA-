@@ -1,0 +1,42 @@
+class DoublyLinkedList {
+    Node head;
+    class Node {
+        int data;
+        Node next;
+        Node prev;
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+            this.prev = null;
+        }
+    }
+    public void InsertintoEnd(int num) {
+        Node newNode = new Node(num); 
+
+        if (head == null) { 
+            head = newNode;
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+            newNode.prev = temp;  
+        }
+    }
+    public void printalltheNodes() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " "); 
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        DoublyLinkedList lists = new DoublyLinkedList();
+        lists.InsertintoEnd(100);  
+        lists.InsertintoEnd(200);
+        lists.InsertintoEnd(300);
+        lists.printalltheNodes();
+    }
+}
